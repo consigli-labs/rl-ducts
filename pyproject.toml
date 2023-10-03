@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "plantroom-rl"
+version = "0.1.0"
+description = ""
+authors = ["Than Htut Soe <than@consigli.no>"]
+readme = "README.md"
+packages = [
+    { include = "plantroom-rl" },
+    { include = "ventilation-env/**/*.py" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+gymnasium = "^0.29.1"
+notebook = "^7.0.3"
+minigrid = "^2.3.1"
+ventilation-env = {path = "ventilation-env", develop = true}
+stable-baselines3 = "^2.1.0"
+opencv-python = "^4.8.0.76"
+huggingface-hub = "^0.17.3"
+huggingface-sb3 = "^3.0"
+sb3-contrib = "^2.1.0"
+optuna = "^3.3.0"
+gym-minigrid = "^1.2.2"
+shimmy = "^1.2.1"
+
+
+[tool.poetry.group.dev.dependencies]
+poethepoet = "^0.22.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poe.tasks]
+start	= "jupyter notebook --no-browser --port 8088"
